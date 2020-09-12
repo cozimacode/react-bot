@@ -9,7 +9,7 @@
 
 ## Demonstration
 
-![demo](https://previews.dropbox.com/p/orig/AA4ORCqRhFQHX5GjeOHQ4L8kZYuQbjxLgIwcrYcfGy9fE5uxXnPycdi948RGJkvWlYSN7Wqx8Pq1fUcMXDhG9pB9Z9Y2j1GsKi2XKEkspDfpc2tkdlPDz3ytiQi6pEKFpy6QTFQautGd-nLhOGLPOFxhDjOIfqBTjHGRYiBe61zBickEZllvmPF1V0ODTm4nMh6gjsNNxzqZh2n7T6mEKt7gl1zm47QeXF6FYKYtp7qqwa5hdbRbG-WE0xJ1h9up2gXQxW27WZCWkqJ0kYz277PIzGNoRjxrLHyG3S65SZAnO54iigKXHzAqy8Hq7KeSeWFLs5T8viGUSAW7lRFqInn3/p.gif)
+![demo](./demo/react-bot-demo.gif)
 
 [Fork our repository](https://github.com/naser-baig-au4/react-bot "Fork our repository") if you'd like to play with the demo.
 
@@ -25,12 +25,6 @@ npm install @cozimacode/react-bot
 
 ```bash
 yarn add @cozimacode/react-bot
-```
-
-#### UNPKG
-
-```html
-<script></script>
 ```
 
 ## Usage
@@ -117,7 +111,7 @@ export default Demo;
 | ---------------------- | ----------------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **handleUserInput**    | (...args: any[]) => any | YES      |                   | Accepts a function that processes the user input. The first argument is mandatory as it depicts the input.                        |
 | **initialResponse**    | object                  | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
-| **title**              | string                  | NO       | Hi, there!        | Title of the chat widget.                                                                                                         |
+| **title**              | string                  | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
 | **messagePlaceHolder** | string                  | NO       | Type a message... | Placeholder for input.                                                                                                            |
 | **chatAvatar**         | string                  | NO       |                   | The chat avatar for the bot response.                                                                                             |
 | **titleAvatar**        | string                  | NO       |                   | The picture that will be shown before the title in header.                                                                        |
