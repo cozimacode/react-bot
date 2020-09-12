@@ -1,0 +1,5 @@
+@supports (-moz-appearance:none) { /*All CSS to target firefox should go here */
+    .rcb-launcher button > p {
+        padding-bottom: 5px;
+    }
+}

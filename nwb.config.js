@@ -1,12 +1,13 @@
 module.exports = {
-  type: 'react-component',
+  type: "react-component",
   npm: {
     esModules: true,
     umd: {
-      global: 'ReactBot',
+      global: "ReactBot",
       externals: {
-        react: 'React'
-      }
-    }
-  }
-}
+        react: "React",
+        "react-dom": "ReactDOM",
+      },
+    },
+  },
+};

@@ -1,15 +1,31 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { ReactBot, displayTypingEffect, hideTypingEffect } from "../../src";
+import { mockAPIResponse } from "../utils/network-utils";
+import CustomResponse from "../utils/response-utils";
 
-import Example from '../../src'
+class Demo extends Component {
+  handleUserInput = (input) => {
+    displayTypingEffect();
+    //We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
+    setTimeout(async () => {
+      await mockAPIResponse(input);
+      hideTypingEffect();
+    }, 2000);
+  };
 
-export default class Demo extends Component {
   render() {
-    return <div>
-      <h1>react-bot Demo</h1>
-      <Example/>
-    </div>
+    return (
+      <ReactBot
+        handleUserInput={this.handleUserInput}
+        initialResponse={{
+          Component: CustomResponse,
+          props: { id: 1, name: "Naser" },
+          avatar: true,
+        }}
+      />
+    );
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+ReactDOM.render(<Demo />, document.getElementById("demo"));
