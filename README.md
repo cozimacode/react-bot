@@ -27,6 +27,14 @@ npm install @cozimacode/react-bot
 yarn add @cozimacode/react-bot
 ```
 
+#### UNPKG
+
+```html
+<script src="https://unpkg.com/@cozimacode/react-bot"></script>
+```
+
+You can access it via window.ReactBot
+
 ## Usage
 
 1- Import the ReactBot component in your app and pass the mandatory `handleUserInput` prop that accepts a function to process the user input.
@@ -61,7 +69,7 @@ import { ReactBot, addBotMessage } from '@cozimacode/react-bot';
 function Demo() {
   const handleUserInput = (input) => {
     if (input.indexOf("Hi") > -1) {
-        addBotMessage("Hi there!)
+        addBotMessage("Hi there!")
     }
   };
 
