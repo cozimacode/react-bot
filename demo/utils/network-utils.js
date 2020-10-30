@@ -1,4 +1,4 @@
-import { addBotMessage, addCustomComponent } from "../../src";
+import { addBotMessage, addCustomComponent } from "../../dist";
 import CustomResponse from "./response-utils";
 
 async function mockAPIResponse(message) {

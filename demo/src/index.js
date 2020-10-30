@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { ReactBot, displayTypingEffect, hideTypingEffect } from "../../src";
+import { ReactBot, displayTypingEffect, hideTypingEffect } from "../../dist";
 import { mockAPIResponse } from "../utils/network-utils";
 import CustomResponse from "../utils/response-utils";
+import "../../dist/styles.css";
 
 class Demo extends Component {
   handleUserInput = (input) => {

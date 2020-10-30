@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import React, { useState } from "react";
 import Launcher from "./coreComponents/Launcher";
 import Container from "./coreComponents/Container";

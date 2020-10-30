@@ -40,21 +40,15 @@ You can access it via window.ReactBot
 1- Import the ReactBot component in your app and pass the mandatory `handleUserInput` prop that accepts a function to process the user input.
 
 ```js
-import React from 'react';
-import { ReactBot } from '@cozimacode/react-bot';
+import React from "react";
+import { ReactBot } from "@cozimacode/react-bot";
 
 function Demo() {
   const handleUserInput = (input) => {
     //You can send this message to the backend or mock a response
   };
 
-  render() {
-    return (
-      <ReactBot
-        handleUserInput={this.handleUserInput}
-      />
-    );
-  }
+  return <ReactBot handleUserInput={this.handleUserInput} />;
 }
 
 export default Demo;
@@ -63,23 +57,17 @@ export default Demo;
 2- Import the `addBotMessage` method to add a plain text bot response.
 
 ```js
-import React from 'react';
-import { ReactBot, addBotMessage } from '@cozimacode/react-bot';
+import React from "react";
+import { ReactBot, addBotMessage } from "@cozimacode/react-bot";
 
 function Demo() {
   const handleUserInput = (input) => {
     if (input.indexOf("Hi") > -1) {
-        addBotMessage("Hi there!")
+      addBotMessage("Hi there!");
     }
   };
 
-  render() {
-    return (
-      <ReactBot
-        handleUserInput={this.handleUserInput}
-      />
-    );
-  }
+  return <ReactBot handleUserInput={this.handleUserInput} />;
 }
 
 export default Demo;
@@ -97,7 +85,6 @@ function Demo() {
     ...
   };
 
-  render() {
     return (
       <ReactBot
         handleUserInput={this.handleUserInput}
@@ -106,7 +93,6 @@ function Demo() {
         messagePlaceHolder="Type something here..."
       />
     );
-  }
 }
 
 export default Demo;
@@ -115,17 +101,17 @@ export default Demo;
 
 ## Props
 
-| prop                   | type                    | required | default value     | description                                                                                                                       |
-| ---------------------- | ----------------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **handleUserInput**    | (...args: any[]) => any | YES      |                   | Accepts a function that processes the user input. The first argument is mandatory as it depicts the input.                        |
-| **initialResponse**    | object                  | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
-| **title**              | string                  | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
-| **messagePlaceHolder** | string                  | NO       | Type a message... | Placeholder for input.                                                                                                            |
-| **chatAvatar**         | string                  | NO       |                   | The chat avatar for the bot response.                                                                                             |
-| **titleAvatar**        | string                  | NO       |                   | The picture that will be shown before the title in header.                                                                        |
-| **autofocus**          | boolean                 | NO       | true              | Focuses on the input field on launch.                                                                                             |
-| **customLauncherIcon** | string                  | NO       |                   | Change the default launcher icon/image.                                                                                           |
-| **typingGif**          | string                  | NO       |                   | Show a different gif/png for typing indicator.                                                                                    |
+| prop                   | type              | required | default value     | description                                                                                                                       |
+| ---------------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **handleUserInput**    | (...args) => void | YES      |                   | Accepts a function that processes the user input. The first argument depicts the user input as a string.                          |
+| **initialResponse**    | object            | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
+| **title**              | string            | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
+| **messagePlaceHolder** | string            | NO       | Type a message... | Placeholder for input.                                                                                                            |
+| **chatAvatar**         | string            | NO       |                   | The chat avatar for the bot response.                                                                                             |
+| **titleAvatar**        | string            | NO       |                   | The picture that will be shown before the title in header.                                                                        |
+| **autofocus**          | boolean           | NO       | true              | Focuses on the input field on launch.                                                                                             |
+| **customLauncherIcon** | string            | NO       |                   | Change the default launcher icon/image.                                                                                           |
+| **typingGif**          | string            | NO       |                   | Show a different gif/png for typing indicator.                                                                                    |
 
 ## Overriding Styles
 
@@ -167,29 +153,26 @@ Feel free to create a custom CSS stylesheet and override the default CSS classes
 Example:
 
 ```js
-import React from 'react';
-import { ReactBot, displayTypingEffect, hideTypingEffect, addBotMessage } from '@cozimacode/react-bot';
+import React from "react";
+import {
+  ReactBot,
+  displayTypingEffect,
+  hideTypingEffect,
+  addBotMessage,
+} from "@cozimacode/react-bot";
 
 function Demo() {
-    const handleUserInput = (input) => {
-	displayTypingEffect();
-    const message = "some response from backend"
-	addBotMessage(message);
-	hideTypingEffect();
+  const handleUserInput = (input) => {
+    displayTypingEffect();
+    const message = "some response from backend";
+    addBotMessage(message);
+    hideTypingEffect();
   };
-};
 
-  render() {
-    return (
-      <ReactBot
-        handleUserInput={this.handleUserInput}
-      />
-    );
-  }
+  return <ReactBot handleUserInput={this.handleUserInput} />;
 }
 
 export default Demo;
-
 ```
 
 ## Need further customization?
