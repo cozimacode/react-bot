@@ -37,11 +37,12 @@ You can access it via window.ReactBot
 
 ## Usage
 
-1- Import the ReactBot component in your app and pass the mandatory `handleUserInput` prop that accepts a function to process the user input.
+1- Import the ReactBot component and the stylesheet in your app and pass the mandatory `handleUserInput` prop that accepts a function to process the user input.
 
 ```js
 import React from "react";
 import { ReactBot } from "@cozimacode/react-bot";
+import "@cozimacode/react-bot/dist/styles.css";
 
 function Demo() {
   const handleUserInput = (input) => {
@@ -59,6 +60,7 @@ export default Demo;
 ```js
 import React from "react";
 import { ReactBot, addBotMessage } from "@cozimacode/react-bot";
+import "@cozimacode/react-bot/dist/styles.css";
 
 function Demo() {
   const handleUserInput = (input) => {
@@ -78,6 +80,7 @@ export default Demo;
 ```js
 import React from 'react';
 import { ReactBot } from '@cozimacode/react-bot';
+import "@cozimacode/react-bot/dist/styles.css";
 import launcherIcon from './launcherIcon.png';
 
 function Demo() {
@@ -160,6 +163,7 @@ import {
   hideTypingEffect,
   addBotMessage,
 } from "@cozimacode/react-bot";
+import "@cozimacode/react-bot/dist/styles.css";
 
 function Demo() {
   const handleUserInput = (input) => {
