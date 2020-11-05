@@ -11,7 +11,7 @@
 
 ![demo](./demo/react-bot-demo.gif)
 
-[Fork our repository](https://github.com/naser-baig-au4/react-bot "Fork our repository") if you'd like to play with the demo.
+[Fork our repository](https://github.com/cozimacode/react-bot "Fork our repository") if you'd like to play with the demo.
 
 ## Installation
 
@@ -181,10 +181,10 @@ export default Demo;
 
 ## Need further customization?
 
-You are more than welcome to [fork our code repository](https://github.com/naser-baig-au4/react-bot "fork our code repository") and make any changes or add any custom features as you please. If you feel like sharing your work with the community, then we'd love for you to [contribute to this project](https://github.com/naser-baig-au4/react-bot/blob/master/CONTRIBUTING.md "contribute to this project").
+You are more than welcome to [fork our code repository](https://github.com/cozimacode/react-bot "fork our code repository") and make any changes or add any custom features as you please. If you feel like sharing your work with the community, then we'd love for you to [contribute to this project](https://github.com/cozimacode/react-bot/blob/master/CONTRIBUTING.md "contribute to this project").
 
 ## About
 
-This project is written and maintained by [Naser Baig](https://github.com/naser-baig-au4).
+This project is written and maintained by [Naser Baig](https://github.com/cozimacode).
 
 I am always looking for exciting projects to work on. If you happen to be working on one of them and need a frontend engineer, then [let's connect](https://www.linkedin.com/in/nasermohdbaig/ "let's connect").
