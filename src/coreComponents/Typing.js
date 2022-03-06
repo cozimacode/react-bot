@@ -5,7 +5,7 @@ import { containerRef } from "./Container";
 let typingRef = createRef();
 
 export async function displayTypingEffect() {
-  await typingEffect(Typing);
+  await typingEffect();
   typingRef.current.className += " rcb-is-typing";
   containerRef.current.scrollTop = containerRef.current.scrollHeight + 700;
 }

@@ -49,7 +49,7 @@ function Demo() {
     //You can send this message to the backend or mock a response
   };
 
-  return <ReactBot handleUserInput={this.handleUserInput} />;
+  return <ReactBot handleUserInput={handleUserInput} />;
 }
 
 export default Demo;
@@ -69,7 +69,7 @@ function Demo() {
     }
   };
 
-  return <ReactBot handleUserInput={this.handleUserInput} />;
+  return <ReactBot handleUserInput={handleUserInput} />;
 }
 
 export default Demo;
@@ -90,7 +90,7 @@ function Demo() {
 
     return (
       <ReactBot
-        handleUserInput={this.handleUserInput}
+        handleUserInput={handleUserInput}
         customLauncherIcon={launcherIcon}
         title="ReactBot"
         messagePlaceHolder="Type something here..."
@@ -104,17 +104,17 @@ export default Demo;
 
 ## Props
 
-| prop                   | type              | required | default value     | description                                                                                                                       |
-| ---------------------- | ----------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **handleUserInput**    | (...args) => void | YES      |                   | Accepts a function that processes the user input. The first argument depicts the user input as a string.                          |
-| **initialResponse**    | object            | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
-| **title**              | string            | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
-| **messagePlaceHolder** | string            | NO       | Type a message... | Placeholder for input.                                                                                                            |
-| **chatAvatar**         | string            | NO       |                   | The chat avatar for the bot response.                                                                                             |
-| **titleAvatar**        | string            | NO       |                   | The picture that will be shown before the title in header.                                                                        |
-| **autofocus**          | boolean           | NO       | true              | Focuses on the input field on launch.                                                                                             |
-| **customLauncherIcon** | string            | NO       |                   | Change the default launcher icon/image.                                                                                           |
-| **typingGif**          | string            | NO       |                   | Show a different gif/png for typing indicator.                                                                                    |
+| prop                   | type                    | required | default value     | description                                                                                                                       |
+| ---------------------- | ----------------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **handleUserInput**    | (input: string) => void | YES      |                   | Accepts a function that processes the user input. The first argument depicts the user input as a string.                          |
+| **initialResponse**    | object                  | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
+| **title**              | string                  | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
+| **messagePlaceHolder** | string                  | NO       | Type a message... | Placeholder for input.                                                                                                            |
+| **chatAvatar**         | string                  | NO       |                   | The chat avatar for the bot response.                                                                                             |
+| **titleAvatar**        | string                  | NO       |                   | The picture that will be shown before the title in header.                                                                        |
+| **autofocus**          | boolean                 | NO       | true              | Focuses on the input field on launch.                                                                                             |
+| **customLauncherIcon** | string                  | NO       |                   | Change the default launcher icon/image.                                                                                           |
+| **typingGif**          | string                  | NO       |                   | Show a different gif/png for typing indicator.                                                                                    |
 
 ## Overriding Styles
 
@@ -173,7 +173,7 @@ function Demo() {
     hideTypingEffect();
   };
 
-  return <ReactBot handleUserInput={this.handleUserInput} />;
+  return <ReactBot handleUserInput={handleUserInput} />;
 }
 
 export default Demo;

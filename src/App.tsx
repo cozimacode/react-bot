@@ -1,14 +1,19 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-import React, { useState } from "react";
+import React, { FunctionComponent, useState, useCallback } from "react";
+import { MainProps } from "./ReactBot";
 import Launcher from "./coreComponents/Launcher";
 import Container from "./coreComponents/Container";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import "./App.css";
 
-function App({
+interface AppProps extends MainProps {
+  launcherIcon: string | boolean;
+}
+
+export const App: FunctionComponent<AppProps> = ({
   launcherIcon,
   title,
   messagePlaceHolder,
@@ -18,12 +23,13 @@ function App({
   titleAvatar,
   chatAvatar,
   handleUserInput,
-}) {
+}) => {
   let [isContainerActive, toggleContainer] = useState(false);
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     toggleContainer(!isContainerActive);
-  };
+  }, [isContainerActive]);
+
   return (
     <div className="rcb-app">
       <Provider store={store}>
@@ -48,6 +54,4 @@ function App({
       </Provider>
     </div>
   );
-}
-
-export default App;
+};

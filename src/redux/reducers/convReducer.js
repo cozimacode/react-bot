@@ -43,7 +43,7 @@ export const convReducer = (state = initialState, action) => {
         ...state,
         conversationData: [
           ...state.conversationData,
-          { type: action.type, typing: action.payload, id: action.id },
+          { type: action.type, id: action.id },
         ],
       };
 

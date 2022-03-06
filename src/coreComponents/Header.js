@@ -12,7 +12,7 @@ export default class Header extends PureComponent {
         />
         <p className="rcb-header-text">{title}</p>
         <button onClick={toggleContainer} className="rcb-mobile-close">
-          <span>x</span>
+          +
         </button>
       </>
     );

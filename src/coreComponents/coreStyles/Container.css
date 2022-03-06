@@ -105,5 +105,7 @@
 
   .rcb-mobile-close {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

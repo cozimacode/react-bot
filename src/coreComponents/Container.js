@@ -50,13 +50,8 @@ class Container extends Component {
 
   render() {
     let { userInput } = this.state;
-    let {
-      titleAvatar,
-      chatAvatar,
-      typingGif,
-      toggleContainer,
-      title,
-    } = this.props;
+    let { titleAvatar, chatAvatar, typingGif, toggleContainer, title } =
+      this.props;
     return (
       <div className="rcb-container">
         <div className="rcb-header">

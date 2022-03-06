@@ -1,4 +1,4 @@
-export { default as ReactBot } from "./ReactBot";
+export { ReactBot } from "./ReactBot";
 export {
   addUserMessage,
   addBotMessage,

@@ -8,7 +8,7 @@ import "../../dist/styles.css";
 class Demo extends Component {
   handleUserInput = (input) => {
     displayTypingEffect();
-    //We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
+    // We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
     setTimeout(async () => {
       await mockAPIResponse(input);
       hideTypingEffect();

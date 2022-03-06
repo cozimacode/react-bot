@@ -37,9 +37,9 @@ function addCustomComponent({ Component, props, avatar = false }) {
   });
 }
 
-function typingEffect(component) {
+function typingEffect() {
   return new Promise((resolve) => {
-    store.dispatch(Typing(component));
+    store.dispatch(Typing());
     resolve();
   });
 }

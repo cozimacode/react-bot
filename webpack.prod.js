@@ -1,7 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
@@ -14,6 +14,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     library: "ReactBot",
     libraryTarget: "umd",
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   externals: {
     react: {
@@ -29,8 +32,9 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
+  devtool: "source-map",
   plugins: [
     new MiniCssExtractPlugin({ filename: "styles.css" }),
     new CleanWebpackPlugin(),
@@ -44,9 +48,15 @@ module.exports = {
         },
       },
       {
+        test: /\.(t|j)sx?$/,
+        use: { loader: "ts-loader" },
+        exclude: /node_modules/,
+      },
+      {
+        enforce: "pre",
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        loader: "source-map-loader",
       },
       {
         test: /\.css$/,

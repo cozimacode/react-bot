@@ -20,8 +20,7 @@ export const CustomComponent = (component, avatar) => ({
   id: uuid(),
 });
 
-export const Typing = (component) => ({
+export const Typing = () => ({
   type: ActionTypes.TYPING,
-  payload: component,
   id: uuid(),
 });
