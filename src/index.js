@@ -4,4 +4,3 @@ export {
   addBotMessage,
   addCustomComponent,
 } from "./redux/actions/dispatch";
-export { displayTypingEffect, hideTypingEffect } from "./coreComponents/Typing";

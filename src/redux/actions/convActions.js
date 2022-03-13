@@ -1,6 +1,11 @@
 import ActionTypes from "./actionTypes";
 import { v4 as uuid } from "uuid";
 
+export const InitializeBot = (botId) => ({
+  type: ActionTypes.INITIALIZE,
+  id: botId,
+});
+
 export const UserMessage = (message) => ({
   type: ActionTypes.USER,
   payload: message,
@@ -13,8 +18,9 @@ export const BotMessage = (message) => ({
   id: uuid(),
 });
 
-export const CustomComponent = (component, avatar) => ({
+export const CustomComponent = (component, props, avatar) => ({
   type: ActionTypes.CUSTOM,
+  props,
   payload: component,
   avatar,
   id: uuid(),

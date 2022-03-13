@@ -1,9 +1,14 @@
-import React, { PureComponent } from "react";
+import React, { FunctionComponent, memo } from "react";
 import "./coreStyles/Header.css";
 
-export default class Header extends PureComponent {
-  render() {
-    let { toggleContainer, title, titleAvatar } = this.props;
+interface HeaderProps {
+  toggleContainer: () => void;
+  title: string;
+  titleAvatar: string;
+}
+
+export const Header: FunctionComponent<HeaderProps> = memo(
+  ({ toggleContainer, title, titleAvatar }) => {
     return (
       <>
         <span
@@ -17,4 +22,4 @@ export default class Header extends PureComponent {
       </>
     );
   }
-}
+);

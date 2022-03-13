@@ -3,17 +3,20 @@ import "regenerator-runtime/runtime";
 
 import React, { FunctionComponent, useState, useCallback } from "react";
 import { MainProps } from "./ReactBot";
-import Launcher from "./coreComponents/Launcher";
-import Container from "./coreComponents/Container";
+import { Launcher } from "./coreComponents/Launcher";
+import { Container } from "./coreComponents/Container";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import "./App.css";
 
-interface AppProps extends MainProps {
+interface AppProps extends Required<Omit<MainProps, "customLauncherIcon">> {
+  botId: string;
   launcherIcon: string | boolean;
 }
 
 export const App: FunctionComponent<AppProps> = ({
+  botId,
+  className,
   launcherIcon,
   title,
   messagePlaceHolder,
@@ -31,7 +34,7 @@ export const App: FunctionComponent<AppProps> = ({
   }, [isContainerActive]);
 
   return (
-    <div className="rcb-app">
+    <div className={className ? `${className} rcb-app` : "rcb-app"}>
       <Provider store={store}>
         {isContainerActive && (
           <Container
