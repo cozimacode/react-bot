@@ -81,8 +81,8 @@ export default Demo;
 ```js
 import React from 'react';
 import { ReactBot } from '@cozimacode/react-bot';
-import "@cozimacode/react-bot/dist/styles.css";
 import launcherIcon from './launcherIcon.png';
+import "@cozimacode/react-bot/dist/styles.css";
 
 function Demo() {
     const handleUserInput = (input) => {
@@ -136,7 +136,7 @@ Feel free to create a custom CSS stylesheet and override the default CSS classes
 ## Methods <a name="methods"></a>
 
 - **addBotMessage**
-  You can use this method to simulate a response from the bot after processing the user input through the backend. The first argument accepts a plain text value. The second argument takes the botId which only needs to be passed if using the multiple bots feature and needs to match the ID you pass to `ReactBot`.
+  You can use this method to simulate a response from the bot after processing the user input through the backend. The first argument accepts a plain text value. The second argument takes the **botId** which only needs to be passed if using the multiple bots feature and needs to match the ID you pass to `ReactBot`.
 
 - **addUserMessage**
   This method can be used to add a message as a user without invoking the `handleUserInput` function. First argument accepts a plain text value. For the second argument, it is same scenario as mentioned above for `addBotMessage`.
@@ -158,7 +158,7 @@ Feel free to create a custom CSS stylesheet and override the default CSS classes
 
 v2 and above supports multiple bot instances on the same page. Passing the `botId` prop with a unique identification key is mandatory when using this feature.
 
-Also, the [methods above](#methods) need the _same ID_ passed to them as the second argument. Check the [demo project](https://github.com/cozimacode/react-bot/tree/master/demo) for a sample of multiple bots.
+Also, the [methods above](#methods) need the **same ID** passed to them as the second argument. Check the [demo project](https://github.com/cozimacode/react-bot/tree/master/demo) for a sample of multiple bots.
 
 ## Need further customization?
 
