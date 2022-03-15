@@ -11,7 +11,11 @@ import { MainProps } from "../ReactBot";
 import Send from "../assets/images/send.png";
 import { ConversationUI, Conversation } from "./ConversationUI";
 import { Header } from "./Header";
-import { addUserMessage, typingEffect } from "../redux/actions/dispatch";
+import {
+  addUserMessage,
+  typingEffect,
+  hideTyping,
+} from "../redux/actions/dispatch";
 import "./coreStyles/Container.css";
 
 interface ContainerProps
@@ -22,13 +26,17 @@ interface ContainerProps
   toggleContainer: () => void;
 }
 
-const mapState = ({
-  convReducer: { conversationData },
-}: Record<string, Record<string, Array<Conversation>>>) => ({
-  conversationData,
+const mapState = (
+  {
+    convReducer,
+  }: Record<string, Record<string, Record<string, Array<Conversation>>>>,
+  { botId }: { botId: string }
+) => ({
+  conversationData: convReducer[botId].conversationData,
 });
 
 const Inner: FunctionComponent<ContainerProps> = ({
+  botId,
   conversationData,
   title,
   messagePlaceHolder,
@@ -50,18 +58,17 @@ const Inner: FunctionComponent<ContainerProps> = ({
 
   useEffect(() => {
     if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight + 700;
+      containerRef.current.scrollTop =
+        containerRef.current.scrollHeight + containerRef.current.clientHeight;
     }
   }, [conversationData]);
 
   const displayTypingEffect = () => {
-    typingEffect().then(() =>
-      typingRef.current?.classList.add("rcb-is-typing")
-    );
+    typingEffect(botId);
   };
 
   const hideTypingEffect = () => {
-    typingRef.current?.classList.remove("rcb-is-typing");
+    hideTyping(botId);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +76,7 @@ const Inner: FunctionComponent<ContainerProps> = ({
   };
 
   const handleClick = async () => {
-    await addUserMessage(userInput);
+    await addUserMessage(userInput, botId);
     handleUserInput(userInput, displayTypingEffect, hideTypingEffect);
     setUserInput("");
   };

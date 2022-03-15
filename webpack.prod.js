@@ -34,7 +34,6 @@ module.exports = {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
-  devtool: "source-map",
   plugins: [
     new MiniCssExtractPlugin({ filename: "styles.css" }),
     new CleanWebpackPlugin(),
@@ -48,15 +47,9 @@ module.exports = {
         },
       },
       {
-        test: /\.(t|j)sx?$/,
+        test: /\.tsx?$/,
         use: { loader: "ts-loader" },
-        exclude: /node_modules/,
-      },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "source-map-loader",
+        exclude: [/node_modules/, /demo/],
       },
       {
         test: /\.css$/,

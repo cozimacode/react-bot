@@ -10,7 +10,6 @@ import { store } from "./redux/store";
 import "./App.css";
 
 interface AppProps extends Required<Omit<MainProps, "customLauncherIcon">> {
-  botId: string;
   launcherIcon: string | boolean;
 }
 
@@ -39,6 +38,7 @@ export const App: FunctionComponent<AppProps> = ({
         {isContainerActive && (
           <Container
             autofocus={autofocus}
+            botId={botId}
             title={title}
             messagePlaceHolder={messagePlaceHolder}
             toggleContainer={toggle}
@@ -49,6 +49,7 @@ export const App: FunctionComponent<AppProps> = ({
           />
         )}
         <Launcher
+          botId={botId}
           initialResponse={initialResponse}
           launcherIcon={launcherIcon}
           isContainerActive={isContainerActive}

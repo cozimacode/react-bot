@@ -1,5 +1,4 @@
-import React, { FunctionComponent } from "react";
-import { v4 as uuid } from "uuid";
+import React, { FunctionComponent, ElementType } from "react";
 import { App } from "./App";
 import { initializeBot } from "./redux/actions/dispatch";
 import typing from "./assets/images/typing.gif";
@@ -8,12 +7,13 @@ import "./index.css";
 import "./coreComponents/coreStyles/BrowserSpecific.css";
 
 export interface InitialResponse {
-  Component: JSX.Element;
+  Component: ElementType;
   props: Record<string, any>;
   avatar?: boolean;
 }
 
 export interface MainProps {
+  botId?: string;
   className?: string;
   customLauncherIcon?: string | boolean;
   title?: string;
@@ -31,6 +31,7 @@ export interface MainProps {
 }
 
 export const ReactBot: FunctionComponent<MainProps> = ({
+  botId = "default",
   className = "",
   customLauncherIcon = false,
   title = "Hi, there!",
@@ -42,13 +43,12 @@ export const ReactBot: FunctionComponent<MainProps> = ({
   chatAvatar = avatar,
   handleUserInput,
 }) => {
-  const botId = uuid();
   initializeBot(botId);
 
   return (
     <App
       botId={botId}
-      className={className}
+      className={`${className} ${botId}`}
       launcherIcon={customLauncherIcon}
       title={title}
       messagePlaceHolder={messagePlaceHolder}

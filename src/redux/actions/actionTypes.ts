@@ -4,4 +4,5 @@ export default {
   BOT: "BOT",
   CUSTOM: "CUSTOM",
   TYPING: "TYPING",
+  HIDETYPING: "HIDETYPING",
 };

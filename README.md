@@ -4,6 +4,7 @@
 
 - Responsive, user friendly chat interface
 - Totally customizable
+- Supports [multiple bot instances](#multiple-bots) on a single page (v2 and above)
 - Extremely low learning curve
 - Lightweight
 
@@ -102,19 +103,21 @@ export default Demo;
 
 ```
 
-## Props
+## Props <a name="props"></a>
 
-| prop                   | type                    | required | default value     | description                                                                                                                       |
-| ---------------------- | ----------------------- | -------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **handleUserInput**    | (input: string) => void | YES      |                   | Accepts a function that processes the user input. The first argument depicts the user input as a string.                          |
-| **initialResponse**    | object                  | NO       |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response. |
-| **title**              | string                  | NO       | Hi, there!        | Title for the chat widget.                                                                                                        |
-| **messagePlaceHolder** | string                  | NO       | Type a message... | Placeholder for input.                                                                                                            |
-| **chatAvatar**         | string                  | NO       |                   | The chat avatar for the bot response.                                                                                             |
-| **titleAvatar**        | string                  | NO       |                   | The picture that will be shown before the title in header.                                                                        |
-| **autofocus**          | boolean                 | NO       | true              | Focuses on the input field on launch.                                                                                             |
-| **customLauncherIcon** | string                  | NO       |                   | Change the default launcher icon/image.                                                                                           |
-| **typingGif**          | string                  | NO       |                   | Show a different gif/png for typing indicator.                                                                                    |
+| prop                   | type                                                                    | required                                               | default value     | description                                                                                                                                                                                           |
+| ---------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **autofocus**          | boolean                                                                 | NO                                                     | true              | Focuses on the input field on launch.                                                                                                                                                                 |
+| **botId**              | string                                                                  | YES (if using [multiple bots feature](#multiple-bots)) | default           | Passing a unique ID to this prop is mandatory only if you require multiple bots on the same page.                                                                                                     |
+| **chatAvatar**         | string                                                                  | NO                                                     |                   | The chat avatar for the bot response.                                                                                                                                                                 |
+| **className**          | string                                                                  | NO                                                     |                   | Useful for custom styling and overwriting default styles.                                                                                                                                             |
+| **customLauncherIcon** | string                                                                  | NO                                                     |                   | Change the default launcher icon/image.                                                                                                                                                               |
+| **handleUserInput**    | (input: string, showTyping: () => void, hideTyping: () => void) => void | YES                                                    |                   | Accepts a function that processes the user input. The first argument depicts the user input as a string. The second and third arguments are functions to show and hide typing indicator respectively. |
+| **initialResponse**    | object                                                                  | NO                                                     |                   | Accepts an object with keys Component, props and avatar, just like `addCustomResponse` method. Use it to show a default response.                                                                     |
+| **messagePlaceHolder** | string                                                                  | NO                                                     | Type a message... | Placeholder for input.                                                                                                                                                                                |
+| **title**              | string                                                                  | NO                                                     | Hi, there!        | Title for the chat widget.                                                                                                                                                                            |
+| **titleAvatar**        | string                                                                  | NO                                                     |                   | The picture that will be shown before the title in header.                                                                                                                                            |
+| **typingGif**          | string                                                                  | NO                                                     |                   | Show a different gif/png for typing indicator.                                                                                                                                                        |
 
 ## Overriding Styles
 
@@ -130,16 +133,17 @@ Feel free to create a custom CSS stylesheet and override the default CSS classes
 }
 ```
 
-## Methods
+## Methods <a name="methods"></a>
 
 - **addBotMessage**
-  You can use this method to simulate a response from the bot after processing the user input through the backend. This accepts plain text values.
+  You can use this method to simulate a response from the bot after processing the user input through the backend. The first argument accepts a plain text value. The second argument takes the botId which only needs to be passed if using the multiple bots feature and needs to match the ID you pass to `ReactBot`.
 
 - **addUserMessage**
-  This method can be used to add a message as a user without invoking the `handleUserInput` function.
+  This method can be used to add a message as a user without invoking the `handleUserInput` function. First argument accepts a plain text value. For the second argument, it is same scenario as mentioned above for `addBotMessage`.
 
 - **addCustomComponent**
-  This is used to add any custom React component. It accepts an object with the component class, props for it (if any) and an optional boolean to show/hide the chat avatar.
+  This is used to add any custom React component. The first argument accepts an object with the component class, props for it (if any) and an optional boolean to show/hide the chat avatar. For the second argument, it is same scenario as mentioned above for `addBotMessage`.
+
   ```js
   addCustomComponent({
     Component: CustomReactComponent,
@@ -147,37 +151,14 @@ Feel free to create a custom CSS stylesheet and override the default CSS classes
     avatar: true,
   });
   ```
-- **displayTypingEffect**
-  This method can be used to display the typing indicator. Ideally it should be called before sending the user input to backend.
 
-- **hideTypingEffect**
-  This method can be used to hide the typing indicator. Ideally it should be called after a response is received from the backend.
+## Multiple Bots <a name="multiple-bots"></a>
 
-Example:
+![multiple-bots](./demo/multiple-bots-demo.gif)
 
-```js
-import React from "react";
-import {
-  ReactBot,
-  displayTypingEffect,
-  hideTypingEffect,
-  addBotMessage,
-} from "@cozimacode/react-bot";
-import "@cozimacode/react-bot/dist/styles.css";
+v2 and above supports multiple bot instances on the same page. Passing the `botId` prop with a unique identification key is mandatory when using this feature.
 
-function Demo() {
-  const handleUserInput = (input) => {
-    displayTypingEffect();
-    const message = "some response from backend";
-    addBotMessage(message);
-    hideTypingEffect();
-  };
-
-  return <ReactBot handleUserInput={handleUserInput} />;
-}
-
-export default Demo;
-```
+Also, the [methods above](#methods) need the _same ID_ passed to them as the second argument. Check the [demo project](https://github.com/cozimacode/react-bot/tree/master/demo) for a sample of multiple bots.
 
 ## Need further customization?
 

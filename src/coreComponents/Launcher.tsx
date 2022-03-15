@@ -6,6 +6,7 @@ import { InitialResponse } from "../ReactBot";
 import "./coreStyles/Launcher.css";
 
 interface LauncherProps {
+  botId: string;
   initialResponse: InitialResponse | boolean;
   launcherIcon: string | boolean;
   toggleContainer: () => void;
@@ -13,13 +14,14 @@ interface LauncherProps {
 }
 
 export const Launcher: FunctionComponent<LauncherProps> = ({
+  botId,
   isContainerActive,
   toggleContainer,
   launcherIcon,
   initialResponse,
 }) => {
   useEffect(() => {
-    initialResponse && showResponse(initialResponse as InitialResponse);
+    initialResponse && showResponse(initialResponse as InitialResponse, botId);
   }, [initialResponse]);
   return (
     <div className="rcb-launcher">

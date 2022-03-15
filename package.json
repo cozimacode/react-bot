@@ -7,6 +7,7 @@
     "email": "techblazes@gmail.com"
   },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -54,7 +55,6 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "regenerator-runtime": "^0.13.9",
-    "source-map-loader": "^3.0.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.3",
     "ts-loader": "^9.2.6",
