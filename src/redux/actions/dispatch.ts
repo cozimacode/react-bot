@@ -1,4 +1,4 @@
-import { ElementType } from "react";
+import { InitialResponse } from "../../ReactBot";
 import { store } from "../store";
 import {
   InitializeBot,
@@ -28,15 +28,7 @@ function addUserMessage(message: string, botId = "default"): Promise<void> {
 }
 
 function addCustomComponent(
-  {
-    Component,
-    props,
-    avatar = false,
-  }: {
-    Component: ElementType;
-    props: Record<string, unknown>;
-    avatar?: boolean;
-  },
+  { Component, props, avatar = false }: InitialResponse,
   botId = "default"
 ): Promise<void> {
   return new Promise((resolve) => {

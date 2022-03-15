@@ -8,7 +8,7 @@ import "./coreComponents/coreStyles/BrowserSpecific.css";
 
 export interface InitialResponse {
   Component: ElementType;
-  props: Record<string, any>;
+  props: Record<string, unknown>;
   avatar?: boolean;
 }
 

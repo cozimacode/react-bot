@@ -13,6 +13,7 @@ import { ConversationUI, Conversation } from "./ConversationUI";
 import { Header } from "./Header";
 import {
   addUserMessage,
+  addBotMessage,
   typingEffect,
   hideTyping,
 } from "../redux/actions/dispatch";
@@ -77,7 +78,15 @@ const Inner: FunctionComponent<ContainerProps> = ({
 
   const handleClick = async () => {
     await addUserMessage(userInput, botId);
-    handleUserInput(userInput, displayTypingEffect, hideTypingEffect);
+    if (typeof handleUserInput === "function") {
+      handleUserInput(userInput, displayTypingEffect, hideTypingEffect);
+    } else {
+      addBotMessage(
+        `Sorry. Your last message wasn't processed as you probably forgot to supply a valid function as 'handleUserInput' prop to ReactBot.`,
+        botId
+      );
+    }
+
     setUserInput("");
   };
 
