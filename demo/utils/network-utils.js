@@ -5,7 +5,9 @@ async function mockAPIResponse(message, botId = "default") {
   switch (message.toLowerCase()) {
     case "hi, who is this?":
       await addBotMessage(
-        "I am ReactBot, a responsive, flexible and totally customizable Chat Widget for React Apps",
+        botId === "bot1"
+          ? "I am Rebecca, one of multiple bot twins. We maintain separate state, are totally customizable and can be displayed on the same page."
+          : "I am Mia, one of multiple bot twins. We maintain separate state, are totally customizable and can be displayed on the same page.",
         botId
       );
       break;

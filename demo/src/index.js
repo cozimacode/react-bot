@@ -11,7 +11,7 @@ class Demo extends Component {
     displayTypingEffect();
     // We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
     setTimeout(async () => {
-      await mockAPIResponse(input);
+      await mockAPIResponse(input, "bot1");
       hideTypingEffect();
     }, 2000);
   };
@@ -21,38 +21,28 @@ class Demo extends Component {
   the same Id when calling the available methods. Passing 'botId' is not
   mandatory if you are not displaying multiple bots on the same page) */
 
-  // handleUserInputTwo = (input, displayTypingEffect, hideTypingEffect) => {
-  //   displayTypingEffect();
-  //   // We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
-  //   setTimeout(async () => {
-  //     await mockAPIResponse(input, "bot2");
-  //     hideTypingEffect();
-  //   }, 2000);
-  // };
+  handleUserInputTwo = (input, displayTypingEffect, hideTypingEffect) => {
+    displayTypingEffect();
+    // We are using promises and setTimeout here to simulate delay for the mocked responses. This is where you'd make the call to the backend.
+    setTimeout(async () => {
+      await mockAPIResponse(input, "bot2");
+      hideTypingEffect();
+    }, 2000);
+  };
 
   render() {
     return (
       <>
         <ReactBot
-          // botId="bot1"
+          botId="bot1"
           handleUserInput={this.handleUserInput}
           autofocus={false}
-          initialResponse={{
-            Component: CustomResponse,
-            props: { id: 1, name: "Naser" },
-            avatar: true,
-          }}
         />
-        {/* <ReactBot
+        <ReactBot
           botId="bot2"
           className="secondInstance"
           handleUserInput={this.handleUserInputTwo}
-          initialResponse={{
-            Component: CustomResponse,
-            props: { id: 1, name: "Rebecca" },
-            avatar: true,
-          }}
-        /> */}
+        />
       </>
     );
   }
